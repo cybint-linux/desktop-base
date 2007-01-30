@@ -1,3 +1,15 @@
+desktop-base (4.0.1.99) UNRELEASED; urgency=low
+
+  [ DON'T UPLOAD BEFORE TALKING TO GUSTAVO FRANCO - POST-ETCH STUFF ]
+  * Remove the following unused items:
+    - debian-desktop-logo.png image
+    - wallpapers directory and its content
+    - debblue and bluedeb from backgrounds directory
+    - splash images from splash directory
+    - desktop files and its references from Makefile
+
+ -- Gustavo Franco <stratus@debian.org>  Tue, 30 Jan 2007 17:34:51 -0200
+
 desktop-base (4.0.0.1) experimental; urgency=high
 
   [ Fathi Boudra ]

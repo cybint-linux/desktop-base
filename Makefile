@@ -5,7 +5,6 @@ BACKGROUNDS=$(wildcard backgrounds/*.png backgrounds/*.jpg backgrounds/*.svg)
 EMBLEMS=$(wildcard emblems/*png emblems/*icon)
 SPLASH=$(wildcard splash/*.png)
 PIXMAPS=$(wildcard pixmaps/*.png)
-DESKTOPFILES=$(wildcard *.desktop)
 
 all:
 
@@ -19,9 +18,6 @@ install:
 	# emblems
 	mkdir -p $(DESTDIR)/usr/share/icons/hicolor/48x48/emblems
 	$(INSTALL) $(EMBLEMS) $(DESTDIR)/usr/share/icons/hicolor/48x48/emblems/
-	# desktop files
-	mkdir -p $(DESTDIR)/usr/share/desktop-base
-	$(INSTALL) $(DESKTOPFILES) $(DESTDIR)/usr/share/desktop-base/
 	# pixmaps files
 	mkdir -p $(DESTDIR)/usr/share/pixmaps
 	$(INSTALL) $(PIXMAPS) $(DESTDIR)/usr/share/pixmaps/
