@@ -1,9 +1,9 @@
-desktop-base (6.0.5squeeze1) UNRELEASED; urgency=low
+desktop-base (6.0.5squeeze1) stable; urgency=low
 
   * debian/plymouth:
     - include patch by adris to fix dual screen setups.         closes: #613249
 
- -- Yves-Alexis Perez <corsac@debian.org>  Thu, 17 Feb 2011 08:32:45 +0100
+ -- Yves-Alexis Perez <corsac@debian.org>  Sun, 27 Feb 2011 00:28:11 +0100
 
 desktop-base (6.0.5) unstable; urgency=low
 
