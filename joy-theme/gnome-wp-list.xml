@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
 <wallpapers>
-  <wallpaper>
     <!-- don't include words such as "wallpaper" (avoids translations) -->
   <wallpaper>
     <name>Joy</name>
