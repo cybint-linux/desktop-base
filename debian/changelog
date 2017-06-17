@@ -1,3 +1,10 @@
+desktop-base (9.0.2+deb9u1) stretch; urgency=medium
+
+  * Fix XML syntax errors in gnome wallpaper description files making Joy
+    wallpapers unavailable by default. (Closes: #862228)
+
+ -- Aurélien COUDERC <zecoucou@free.fr>  Fri, 16 Jun 2017 23:43:04 +0200
+
 desktop-base (9.0.2) unstable; urgency=medium
 
   [ Aurélien COUDERC ]

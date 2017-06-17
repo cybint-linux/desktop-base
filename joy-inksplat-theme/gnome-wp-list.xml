@@ -3,7 +3,6 @@
 <wallpapers>
   <wallpaper>
     <!-- don't include words such as "wallpaper" (avoids translations) -->
-  <wallpaper>
     <name>Joy Inksplat</name>
     <filename>/usr/share/desktop-base/joy-inksplat-theme/wallpaper/gnome-background.xml</filename>
     <options>zoom</options>
