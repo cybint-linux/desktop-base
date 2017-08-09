@@ -1,5 +1,7 @@
 desktop-base (9.0.2+deb9u1) stretch; urgency=medium
 
+  * Ensure postinst doesn’t fails on upgrade even when an incomplete theme pack
+    is active. (Closes: #858643)
   * Fix XML syntax errors in gnome wallpaper description files making Joy
     wallpapers unavailable by default. (Closes: #862228)
 
