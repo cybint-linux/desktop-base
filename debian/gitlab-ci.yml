@@ -1,7 +1,30 @@
 ---
 include:
   - https://salsa.debian.org/salsa-ci-team/pipeline/raw/master/salsa-ci.yml
-  - https://salsa.debian.org/salsa-ci-team/pipeline/raw/master/pipeline-jobs.yml
 
 variables:
   RELEASE: 'unstable'
+
+build:
+    extends: .build-package
+
+reprotest:
+    extends: .test-reprotest
+    script:
+      - apt-get update
+      - eatmydata apt-get build-dep -y .
+      - eatmydata reprotest --min-cpus $(nproc --all) --store-dir ${WORKING_DIR}/reprotest ${REPROTEST_EXTRA_ARGS} . -- null |& tee "${WORKING_DIR}/reprotest.log"
+    after_script:
+      - /bin/true
+
+lintian:
+    extends: .test-lintian
+
+autopkgtest:
+    extends: .test-autopkgtest
+
+blhc:
+    extends: .test-blhc
+
+piuparts:
+    extends: .test-piuparts
