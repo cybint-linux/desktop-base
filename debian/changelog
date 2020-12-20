@@ -1,3 +1,11 @@
+desktop-base (11.0.1) unstable; urgency=medium
+
+  * New release
+  * Update standards version to 4.5.0
+  * Bump debhelper version to 13
+
+ -- Jonathan Carter <jcc@debian.org>  Wed, 11 Nov 2020 19:19:22 +0200
+
 desktop-base (10.0.3) unstable; urgency=medium
 
   * Remove Josselin Mouette <joss@debian.org> and Paul Tagliamonte
