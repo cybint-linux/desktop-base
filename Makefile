@@ -1,4 +1,5 @@
-GRUB_THEMES=futureprototype-theme/grub\
+GRUB_THEMES=homeworld-theme/grub\
+    futureprototype-theme/grub\
 	moonlight-theme/grub\
 	softwaves-theme/grub\
 	lines-theme/grub\
@@ -230,6 +231,39 @@ install-local:
 	# Lock screen symlink for KDE
 	install -d $(DESTDIR)/usr/share/wallpapers
 	cd $(DESTDIR)/usr/share/wallpapers && ln -s /usr/share/desktop-base/futureprototype-theme/wallpaper-withlogo FuturePrototypeWithLogo
+
+
+	# homeworld theme (Bullseye’s default)
+	### Plymouth theme
+	install -d $(DESTDIR)/usr/share/plymouth/themes/homeworld
+	$(INSTALL_DATA) $(wildcard homeworld-theme/plymouth/*) $(DESTDIR)/usr/share/plymouth/themes/homeworld
+	install -d $(DESTDIR)/usr/share/desktop-base/homeworld-theme
+	cd $(DESTDIR)/usr/share/desktop-base/homeworld-theme && ln -s /usr/share/plymouth/themes/homeworld plymouth
+
+	### Login background
+	install -d $(DESTDIR)/usr/share/desktop-base/homeworld-theme/login
+	$(INSTALL_DATA) $(wildcard homeworld-theme/login/*) $(DESTDIR)/usr/share/desktop-base/homeworld-theme/login
+
+	### Wallpapers
+	install -d $(DESTDIR)/usr/share/desktop-base/homeworld-theme/wallpaper/contents/images
+	$(INSTALL_DATA) homeworld-theme/wallpaper/metadata.desktop $(DESTDIR)/usr/share/desktop-base/homeworld-theme/wallpaper
+	$(INSTALL_DATA) homeworld-theme/wallpaper/gnome-background.xml $(DESTDIR)/usr/share/desktop-base/homeworld-theme/wallpaper
+	$(INSTALL_DATA) $(wildcard homeworld-theme/wallpaper/contents/images/*) $(DESTDIR)/usr/share/desktop-base/homeworld-theme/wallpaper/contents/images/
+	$(INSTALL_DATA) homeworld-theme/gnome-wp-list.xml $(DESTDIR)/usr/share/gnome-background-properties/debian-homeworld.xml
+	# Wallpaper symlink for KDE
+	install -d $(DESTDIR)/usr/share/wallpapers
+	cd $(DESTDIR)/usr/share/wallpapers && ln -s /usr/share/desktop-base/homeworld-theme/wallpaper homeworld
+
+	### Lockscreen is using the same image as wallpaper
+	install -d $(DESTDIR)/usr/share/desktop-base/homeworld-theme/lockscreen/contents/images
+	$(INSTALL_DATA) homeworld-theme/wallpaper/metadata.desktop $(DESTDIR)/usr/share/desktop-base/homeworld-theme/lockscreen
+	$(INSTALL_DATA) homeworld-theme/wallpaper/gnome-background.xml $(DESTDIR)/usr/share/desktop-base/homeworld-theme/lockscreen
+	$(INSTALL_DATA) $(wildcard homeworld-theme/wallpaper/contents/images/*) $(DESTDIR)/usr/share/desktop-base/homeworld-theme/lockscreen/contents/images/
+
+	# Lock screen symlink for KDE
+	install -d $(DESTDIR)/usr/share/wallpapers
+	cd $(DESTDIR)/usr/share/wallpapers && ln -s /usr/share/desktop-base/homeworld-theme/wallpaper homeworld_wallpaper
+
 
 	# Moonlight theme
 	### Plymouth theme
