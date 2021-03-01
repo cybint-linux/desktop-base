@@ -1,6 +1,10 @@
 desktop-base (11.0.2) UNRELEASED; urgency=medium
 
+  [ Holger Levsen ]
   * README: Homeworld is the default theme for bullseye.
+
+  [ Aurélien COUDERC ]
+  * Improve Plymouth boot screen for Homeworld theme. (Closes: #956426)
 
  -- Holger Levsen <holger@debian.org>  Mon, 15 Feb 2021 18:00:07 +0100
 

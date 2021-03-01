@@ -1,7 +1,7 @@
 #  homeworld.script - boot splash using script plugin
 #
 #  Copyright (C) 2009 Canonical Ltd.
-#  Copyright © 2010-2016 Aurélien Couderc <coucouf@debian.org>
+#  Copyright © 2010-2021 Aurélien Couderc <coucouf@debian.org>
 #  Copyright © 2014-2021 Juliette Taka <juliette.belin@logilab.fr>
 #
 #  This program is free software; you can redistribute it and/or modify
@@ -31,10 +31,10 @@ NB_ROTATION_STEPS = 70;
 NB_REFRESHS_BETWEEN_ANIMS = 3;
 
 # Initial position of the center of the logo in % of background
-DEBIAN_POS_PCT.y = 0.65; # Debian image position in % of screen height
+DEBIAN_POS_PCT.y = 0.68; # Debian image position in % of screen height
 DEBIAN_HEIGHT_PCT = 0.07; # Debian image height in % of smallest screen dimension
 LOGO_CENTER_PCT.x = 0.5; # Debian swirl image position in % of screen height & width
-LOGO_CENTER_PCT.y = 0.442;
+LOGO_CENTER_PCT.y = 0.5;
 LOGO_SIZE_PCT = 0.18; # Debian swirl image size in % of smallest screen dimension
 
 #------------------------------- Globals -------------------------------------------
@@ -119,7 +119,7 @@ fun TextYOffset() {
     #Debug("y = " + y);
 
     text_height = first_line_height * 7.5;
-    min_height = Window.GetHeight();
+    min_height = window_max.height;
     #Debug("text_height=" + text_height + "; min_height=" + min_height);
 
     if (y + text_height > min_height)
@@ -150,13 +150,7 @@ logo_pos.y = logo_center.y - logo_size/2;
 
 #------------------------------- Background ----------------------------------------
 bg_image = Image("plymouth_background_homeworld.png");
-bg_image_ratio = bg_image.GetWidth() / bg_image.GetHeight();
-if (screen_ratio > bg_image_ratio)
-    bg_scale_factor = window_max.width / bg_image.GetWidth();
-else
-    bg_scale_factor = window_max.height / bg_image.GetHeight();
-scaled_bg_image = bg_image.Scale(bg_image.GetWidth() * bg_scale_factor,
-                                 bg_image.GetHeight() * bg_scale_factor);
+scaled_bg_image = bg_image.Scale(window_max.width, window_max.height);
 
 # Display background
 bg_sprite = Sprite(scaled_bg_image);
@@ -254,12 +248,12 @@ fun StringToInteger (str) {
 
 #-----------------------------------------------------------------------------
 # Top background colour
-# #489291 --> 0.282, 0.572, 0.569
-# New background colour
-# #0a3649 --> 0.039, 0.212, 0.286
+# #010027 --> 0.004, 0.0, 0.153
+# Bottom background colour
+# #010027 --> 0.004, 0.0, 0.153
 #
-Window.SetBackgroundTopColor (0.282, 0.572, 0.569);     # Nice colour on top of the screen fading to
-Window.SetBackgroundBottomColor (0.039, 0.212, 0.286);  # an equally nice colour on the bottom
+Window.SetBackgroundTopColor (0.004, 0.0, 0.153);     # Nice colour on top of the screen fading to
+Window.SetBackgroundBottomColor (0.004, 0.0, 0.153);  # an equally nice colour on the bottom
 
 bits_per_pixel = Window.GetBitsPerPixel ();
 # TODO need to handle 16 colors ?
