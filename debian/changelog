@@ -5,6 +5,8 @@ desktop-base (11.0.2) UNRELEASED; urgency=medium
 
   [ Aurélien COUDERC ]
   * Improve Plymouth boot screen for Homeworld theme. (Closes: #956426)
+  * Align debian+text logos with Homeworld color palette, put bump Debian
+    version to 11 for login screens.
 
  -- Holger Levsen <holger@debian.org>  Mon, 15 Feb 2021 18:00:07 +0100
 
