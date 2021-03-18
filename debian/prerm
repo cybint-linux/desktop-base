@@ -182,8 +182,9 @@ EOF
             desktop-theme \
             /usr/share/desktop-base/$theme-theme
     done << EOF
-softwaves
+futureprototype
 moonlight
+softwaves
 lines
 joy
 joy-inksplat

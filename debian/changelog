@@ -2,6 +2,8 @@ desktop-base (11.0.3) UNRELEASED; urgency=medium
 
   * Make Debian logo and text darker on GRUB backgrounds to avoid grub’s own
     text being unreadable on top of these. (Closes: #983884)
+  * Also remove futurePrototype alternative for desktop-theme in prerm
+    maintainer script. (Closes: #985267)
 
  -- Aurélien COUDERC <coucouf@debian.org>  Wed, 17 Mar 2021 22:57:01 +0100
 
