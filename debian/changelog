@@ -4,6 +4,7 @@ desktop-base (11.0.3) UNRELEASED; urgency=medium
     text being unreadable on top of these. (Closes: #983884)
   * Also remove futurePrototype alternative for desktop-theme in prerm
     maintainer script. (Closes: #985267)
+  * Fix Name metadata for homeworld theme’s wallpaper.
 
  -- Aurélien COUDERC <coucouf@debian.org>  Wed, 17 Mar 2021 22:57:01 +0100
 
