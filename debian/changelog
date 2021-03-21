@@ -5,6 +5,9 @@ desktop-base (11.0.3) UNRELEASED; urgency=medium
   * Also remove futurePrototype alternative for desktop-theme in prerm
     maintainer script. (Closes: #985267)
   * Fix Name metadata for homeworld theme’s wallpaper.
+  * Also fix plymouth text display in multi-screen configurations for previous
+    themes: futureprototype, joy, lines, moonlight, softwaves (fixes more
+    cases of #956426).
 
  -- Aurélien COUDERC <coucouf@debian.org>  Wed, 17 Mar 2021 22:57:01 +0100
 

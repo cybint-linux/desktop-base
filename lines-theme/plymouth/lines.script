@@ -210,7 +210,7 @@ fun TextYOffset() {
 
     text_height = first_line_height * 7.5;
 
-    min_height = Window.GetHeight();
+    min_height = window_max.height;
     if (y + text_height > min_height)
         y = min_height - text_height;
 
