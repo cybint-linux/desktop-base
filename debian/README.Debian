@@ -24,12 +24,8 @@ README for desktop-base
 1.1. Theme packs
 
 Six theme packs are currently provided:
-- Homeworld (default for Bullseye)
-- futurePrototype (default for Buster)
-- Soft Waves (default for Stretch)
-- Lines (default for Jessie)
-- Joy (default for Wheezy)
-- Spacefun (default for Squeeze)
+- Sua-Sponte 
+- Ranger 
 
     These themes contain customization for GRUB, Plymouth, login managers like
 SDDM and LightDM, wallpapers and lock screen for desktop environments like

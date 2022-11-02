@@ -5,7 +5,7 @@ set -e
 #DEBHELPER#
 
 if [ "${1}" = "upgrade" ]; then
-    if dpkg --compare-versions ${2} le "9.0.0~exp1"; then
+    if dpkg --compare-versions ${2} le "1.0"; then
         # Remove alternative for desktop splash we don’t ship anymore
         update-alternatives --remove-all desktop-splash
 
@@ -85,7 +85,7 @@ spacefun-grub-widescreen.png
 EOF
     fi
 
-    if dpkg --compare-versions ${2} eq "9.0.0~exp1"; then
+    if dpkg --compare-versions ${2} eq "1.0"; then
         # Remove alternatives shipped in 9.0.0~exp1 but now integrated
         # into the theme pack system.
         # Joy old theme structure
