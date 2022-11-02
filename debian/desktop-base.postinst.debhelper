@@ -1,0 +1,10 @@
+# Automatically added by dh_icons/13.9.1
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	if command -v update-icon-caches >/dev/null; then
+		update-icon-caches /usr/share/icons/desktop-base
+	fi
+fi
+# End automatically added section
+# Automatically added by dh_installdeb/13.9.1
+dpkg-maintscript-helper rm_conffile /etc/default/kdm.d/10_desktop-base 9.0.0\~ desktop-base -- "$@"
+# End automatically added section

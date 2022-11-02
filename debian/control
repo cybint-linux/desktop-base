@@ -1,10 +1,8 @@
 Source: desktop-base
 Section: x11
 Priority: optional
-Maintainer: Debian Desktop Team <debian-desktop@lists.debian.org>
-Uploaders: Yves-Alexis Perez <corsac@debian.org>,
-           Aurélien COUDERC <coucouf@debian.org>,
-           Jonathan Carter <jcc@debian.org>
+Maintainer: CYBINT Coders <coder@cybint-linux.com>
+Uploaders: CYBINT Coders <coder@cybint-linux.com>
 Build-Depends: debhelper (>= 13),
                librsvg2-bin,
                optipng,
@@ -12,9 +10,9 @@ Build-Depends: debhelper (>= 13),
                fonts-quicksand,
 Rules-Requires-Root: no
 Standards-Version: 4.5.0
-Homepage: https://www.debian.org/devel/debian-desktop/
-Vcs-Browser: https://salsa.debian.org/debian-desktop-team/desktop-base
-Vcs-Git: https://salsa.debian.org/debian-desktop-team/desktop-base.git
+Homepage: https://github.com/cybint-linux/desktop-base
+Vcs-Browser: https://github.com/cybint-linux/desktop-base
+Vcs-Git: https://github.com/cybint-linux/desktop-base.git
 
 Package: desktop-base
 Architecture: all
@@ -25,8 +23,8 @@ Recommends: plymouth-label
 Suggests: gnome | kde-standard | xfce4 | wmaker
 Description: common files for the Debian Desktop
  This package contains various miscellaneous files which are used by
- Debian Desktop installations.  Currently, it provides some
- Debian-related artwork and themes, .desktop files containing links to
- Debian related material (suitable for placement on a user's desktop),
+ CYBINT Desktop installations.  Currently, it provides some
+ CYBINT-related artwork and themes, .desktop files containing links to
+ CYBINT related material (suitable for placement on a user's desktop),
  and other common files between the available desktop environments
  such as GNOME and KDE.

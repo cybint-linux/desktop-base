@@ -1,4 +1,4 @@
-dir = usr/share/desktop-base/futureprototype-theme/grub
+dir = usr/share/desktop-base/ranger-theme/grub
 
 .PHONY: build clean install
 

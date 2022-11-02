@@ -4,5 +4,5 @@ Description=A theme that features a white debian 10 logo in a white spinning cir
 ModuleName=script
 
 [script]
-ImageDir=/usr/share/plymouth/themes/futureprototype
-ScriptFile=/usr/share/plymouth/themes/futureprototype/futureprototype.script
+ImageDir=/usr/share/plymouth/themes/ranger
+ScriptFile=/usr/share/plymouth/themes/ranger/ranger.script

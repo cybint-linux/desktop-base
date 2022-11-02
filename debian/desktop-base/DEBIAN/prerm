@@ -1,0 +1,145 @@
+#!/bin/sh
+set -e
+
+# Tag to allow some debhelper commands to inject relevant code
+# Automatically added by dh_installdeb/13.9.1
+dpkg-maintscript-helper rm_conffile /etc/default/kdm.d/10_desktop-base 9.0.0\~ desktop-base -- "$@"
+# End automatically added section
+
+
+if [ "$1" = "remove" ] || [ "$1" = "deconfigure" ]; then
+    # Remove vendor logos alternative, all slaves get removed automatically
+    update-alternatives --remove \
+            vendor-logos \
+            /usr/share/desktop-base/cybint-logos
+
+    # Remove background alternatives for theme packages
+    while read theme filename; do
+        update-alternatives --remove \
+            desktop-background \
+            /usr/share/desktop-base/$theme-theme/wallpaper/contents/images/$filename
+    done << EOF
+sua-sponte 1280x1024.svg
+sua-sponte 1600x1200.svg
+sua-sponte 1920x1080.svg
+sua-sponte 1920x1200.svg
+sua-sponte 2560x1080.svg
+sua-sponte 2560x1440.svg
+sua-sponte 3840x2160.svg
+ranger 1280x1024.svg
+ranger 1600x1200.svg
+ranger 1920x1080.svg
+ranger 1920x1200.svg
+ranger 2560x1080.svg
+ranger 2560x1440.svg
+ranger 3840x2160.svg
+EOF
+    # *Last* remove background *highest priority* alternatives for active theme
+    update-alternatives --remove desktop-background /usr/share/desktop-base/active-theme/wallpaper/contents/images/1920x1080.svg
+
+    # Remove desktop-background.xml alternatives
+    # For theme packages
+    while read theme; do
+        update-alternatives --remove \
+            desktop-background.xml \
+            /usr/share/desktop-base/$theme-theme/wallpaper/gnome-background.xml
+    done << EOF
+sua-sponte
+ranger
+EOF
+    # *Lastly* remove *highest priority* alternative for active theme
+    update-alternatives --remove \
+        desktop-background.xml \
+        /usr/share/desktop-base/active-theme/wallpaper/gnome-background.xml
+
+    # Remove desktop-lockscreen.xml alternatives
+    # For theme packages
+    while read theme; do
+        update-alternatives --remove \
+            desktop-lockscreen.xml \
+            /usr/share/desktop-base/$theme-theme/lockscreen/gnome-background.xml
+    done << EOF
+sua-sponte
+ranger
+EOF
+    # *Last* remove *highest priority* alternative for active theme
+    update-alternatives --remove \
+        desktop-lockscreen.xml \
+        /usr/share/desktop-base/active-theme/lockscreen/gnome-background.xml
+
+    # Remove Plasma 5/KDE wallpaper alternatives
+    # For theme packages
+    while read theme; do
+        update-alternatives --remove \
+            desktop-plasma5-wallpaper \
+            /usr/share/desktop-base/$theme-theme/wallpaper
+    done << EOF
+sua-sponte
+ranger
+EOF
+    # *Last* remove *highest priority* alternative for active theme
+    update-alternatives --remove \
+        desktop-plasma5-wallpaper \
+        /usr/share/desktop-base/active-theme/wallpaper
+
+    # Remove login theme alternatives
+    # For theme packages
+    # Alternative for theme packages
+    while read theme background; do
+        update-alternatives --remove \
+            desktop-login-background \
+            /usr/share/desktop-base/$theme-theme/login/$background
+    done << EOF
+sua-sponte background.svg
+ranger background.svg
+EOF
+    # *Last* remove *highest priority* alternative for active theme
+    update-alternatives --remove \
+        desktop-login-background \
+        /usr/share/desktop-base/active-theme/login/background.svg
+
+    # Remove GRUB background alternatives
+    while read theme ratio; do
+        update-alternatives --remove \
+            desktop-grub \
+            /usr/share/desktop-base/$theme-theme/grub/grub-$ratio.png
+    done << EOF
+sua-sponte 4x3
+sua-sponte 16x9
+ranger 4x3
+ranger 16x9
+EOF
+    ## *Lastly* remove *highest priority* alternative
+    num_grub_efi_installed=$(dpkg-query --list "grub-efi*" 2> /dev/null | grep "^i" | wc -l)
+    if [ $num_grub_efi_installed -gt 0 ] ; then
+        remove_first_ratio=4x3
+        remove_last_ratio=16x9
+    else
+        remove_first_ratio=16x9
+        remove_last_ratio=4x3
+    fi
+    update-alternatives --remove \
+        desktop-grub.sh \
+        /usr/share/desktop-base/active-theme/grub/grub_background.sh
+    update-alternatives --remove \
+        desktop-grub \
+        /usr/share/desktop-base/active-theme/grub/grub-$remove_first_ratio.png
+    update-alternatives --remove \
+        desktop-grub \
+        /usr/share/desktop-base/active-theme/grub/grub-$remove_last_ratio.png
+
+
+    # Remove theme package alternatives
+    while read theme; do
+        update-alternatives --remove \
+            desktop-theme \
+            /usr/share/desktop-base/$theme-theme
+    done << EOF
+ranger
+EOF
+    ## *Lastly* remove *highest priority* alternative
+    update-alternatives --remove \
+        desktop-theme \
+        /usr/share/desktop-base/sua-sponte-theme
+
+fi
